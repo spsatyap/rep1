@@ -1,1 +1,27 @@
-hello fsdfsdf
+hello 
+<<Command to run>>
+
+-composer require magento/composer-root-update-plugin ~2.0 --no-update
+-composer update --with-all-dependencies
+
+-bin/magento setup:upgrade
+	{
+		
+		if found error: no commands defined in setup
+		run:
+		redis-cli FLUSHALL
+	}
+
+>>>>>>>Magento is now upgraded to 2.4.5-p1
+>>>>>>> we can check magento version by bin/magento --version
+----------------------------------
+-upload patch and run compiler
+bin/magento di:compile
+bin/magento setup:static-content:deploy -f
+
+>>>>>>> Site would be working now
+check admin panel, if cannot login run below command
+bin/magento config:set system/security/max_session_size_admin 2560000
+----------------------------------
+
+
